@@ -1,0 +1,31 @@
+{
+  "name": "workshop-protractor",
+  "version": "1.0.0",
+  "description": "This is a Workshop about Protractor",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
+    "test": "npm run build && protractor dist/protractor/local.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lposada/protractor-workshop.git"
+  },
+  "keywords": [
+    "ui-testing",
+    "protractor"
+  ],
+  "author": "Luis Fernando Posada <luis.posadac@perficient.com> (lposada)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lposada/protractor-workshop/issues"
+  },
+  "homepage": "https://github.com/lposada/protractor-workshop#readme",
+  "devDependencies": {
+    "@types/jasminewd2": "^2.0.10",
+    "@types/node": "^16.3.0",
+    "protractor": "^7.0.0",
+    "typescript": "^4.3.5"
+  }
+}
