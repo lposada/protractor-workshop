@@ -7,7 +7,7 @@ export class ShippingStepPage {
 
   constructor() {
     this.paymentPage = $('#cgv');
-    this.paymentMenu = $('#form > p > button > span');
+    this.paymentMenu = $('button[name="processCarrier"]');
   }
 
   public async goToPaymentPage(): Promise<void> {
