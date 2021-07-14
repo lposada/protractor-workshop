@@ -20,27 +20,18 @@ describe('Buy a t-shirt', () => {
     await browser.waitForAngularEnabled(false);
     await browser.get('http://automationpractice.com/');
     await menuContentPage.goToTShirtMenu();
-    await (browser.sleep(8000));
     await productListPage.goToaddProductMenu();
-    await (browser.sleep(8000));
     await productAddedModal.goToCheckout();
-    await (browser.sleep(6000));
     await summaryStepPage.goTosignIn();
-    await (browser.sleep(6000));
 
     await signInStepPage.SignIn('aperdomobo@gmail.com', 'WorkshopProtractor');
-    await (browser.sleep(6000));
 
     await addressStepPage.goToShippingMenu();
-    await (browser.sleep(6000));
 
     await shippingStepPage.goToPaymentPage();
-    await (browser.sleep(8000));
 
     await paymentStepPage.goToBankPaymentMenu();
-    await (browser.sleep(6000));
     await bankPaymentPage.goToOrderSummaryMenu();
-    await (browser.sleep(6000));
 
     await expect(orderSummaryPage.goToProcessComplete()).toBe('Your order on My Store is complete.');
   });
