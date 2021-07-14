@@ -18,7 +18,7 @@ describe('Buy a t-shirt', () => {
 
   it('then should be bought a t-shirt', async () => {
     await browser.waitForAngularEnabled(false);
-    await browser.get('http://automationpractice.com/index.php?id_category=1');
+    await browser.get('http://automationpractice.com/');
     await menuContentPage.goToTShirtMenu();
     await (browser.sleep(8000));
     await productListPage.goToaddProductMenu();
