@@ -16,14 +16,9 @@ describe('Buy a t-shirt', () => {
   const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
   const orderSummaryPage: OrderSummaryPage = new OrderSummaryPage();
 
-  beforeEach(() => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 210000;
-  });
-
   it('then should be bought a t-shirt', async () => {
     await browser.waitForAngularEnabled(false);
-    await browser.get('http://automationpractice.com/');
-    await (browser.sleep(6000));
+    await browser.get('http://automationpractice.com/index.php?id_category=1');
     await menuContentPage.goToTShirtMenu();
     await (browser.sleep(8000));
     await productListPage.goToaddProductMenu();
@@ -34,7 +29,7 @@ describe('Buy a t-shirt', () => {
     await (browser.sleep(6000));
 
     await signInStepPage.SignIn('aperdomobo@gmail.com', 'WorkshopProtractor');
-    await (browser.sleep(3000));
+    await (browser.sleep(6000));
 
     await addressStepPage.goToShippingMenu();
     await (browser.sleep(6000));
