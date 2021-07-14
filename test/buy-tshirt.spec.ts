@@ -1,4 +1,5 @@
 import { $, browser } from 'protractor';
+import { MenuContentPage } from '../src/page';
 
 describe('Buy a t-shirt', () => {
   beforeEach(() => {
@@ -6,10 +7,11 @@ describe('Buy a t-shirt', () => {
   });
 
   it('then should be bought a t-shirt', async () => {
+    const menuContentPage: MenuContentPage = new MenuContentPage();
     await browser.waitForAngularEnabled(false);
     await browser.get('http://automationpractice.com/');
-    await (browser.sleep(10000));
-    await $('#block_top_menu > ul > li:nth-child(3) > a').click();
+    await (browser.sleep(3000));
+    await menuContentPage.goToTShirtMenu();
     await (browser.sleep(3000));
     await $('#center_column a.button.ajax_add_to_cart_button.btn.btn-default').click();
     await (browser.sleep(3000));
