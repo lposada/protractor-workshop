@@ -6,7 +6,7 @@ export class ProductAddedModalPage {
   private addedModal: ElementFinder;
 
   constructor() {
-    this.addedModal = $('[style*="display: block;"] .button-container > a');
+    this.addedModal = $('.button-container [title="Proceed to checkout"]');
   }
 
   public async goToCheckout(): Promise<void> {
