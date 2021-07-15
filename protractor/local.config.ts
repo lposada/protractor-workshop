@@ -5,7 +5,7 @@ export const config: Config = {
   framework: 'jasmine',
   specs: ['../test/**/*.spec.js'],
   SELENIUM_PROMISE_MANAGER: false,
-  getPageTimeout: 30000,
+  getPageTimeout: 3000,
   jasmineNodeOpts: {
     defaultTimeoutInterval: 120000,
   },
