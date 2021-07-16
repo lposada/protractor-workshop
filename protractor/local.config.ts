@@ -13,4 +13,11 @@ export const config: Config = {
     reporter();
     browser.manage().timeouts().implicitlyWait(0);
   },
+  capabilities: {
+    browserName: 'chrome',
+    chromeOptions: {
+      args: ['--disable-popup-blocking', '--no-default-browser-check', '--window-size=800,600'],
+      prefs: { credentials_enable_service: false },
+    },
+  },
 };
