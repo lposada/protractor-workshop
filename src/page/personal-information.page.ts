@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import {
-  $, $$, by, browser, ElementFinder, element, ExpectedConditions
+  $, $$, by, browser, ElementFinder, element, ExpectedConditions,
 } from 'protractor';
 
 export class PersonalInformationPage {
