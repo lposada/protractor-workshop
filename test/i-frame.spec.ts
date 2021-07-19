@@ -18,21 +18,21 @@ describe('Enter webpage', () => {
     });
     describe('Switch to main page', () => {
       beforeAll(async () => {
-        await framePage.switchtoMain();
+        await framePage.switchToMainPage();
       });
       it('then the title should be Frames', async () => {
         await expect(framePage.getTitle()).toBe('Frames');
       });
       describe('Change to frame', () => {
         beforeAll(async () => {
-          await framePage.switchtoFrame();
+          await framePage.switchToFrame();
         });
         it('then the title should be This is a sample page', async () => {
           await expect(framePage.getTitle()).toBe('This is a sample page');
         });
         describe('Switch to main page', () => {
           beforeAll(async () => {
-            await framePage.switchtoMain();
+            await framePage.switchToMainPage();
           });
           it('then the title should be Frames', async () => {
             await expect(framePage.getTitle()).toBe('Frames');
