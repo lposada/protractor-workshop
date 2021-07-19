@@ -11,9 +11,9 @@ export class PersonalInformationPage {
   private submitButton: ElementFinder;
 
   constructor() {
-    this.firstNameInput = $('[name="firstname"]');
-    this.lastNameInput = $('[name="lastname"]');
-    this.submitButton = $('[name="submit"]');
+    this.firstNameInput = element(by.name('firstname'));
+    this.lastNameInput = element(by.name('lastname'));
+    this.submitButton = element(by.name('submit'));
   }
 
   public async getTitle() {
