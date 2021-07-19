@@ -3,6 +3,8 @@ import {
   $, $$, by, browser, ElementFinder, element, ExpectedConditions,
 } from 'protractor';
 
+// test comment
+
 export class PersonalInformationPage {
   private firstNameInput: ElementFinder;
 
