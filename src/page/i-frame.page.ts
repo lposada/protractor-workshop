@@ -10,12 +10,12 @@ export class FramePage {
     this.titleLabel = element(by.css('.main-header'));
   }
 
-  public async switchtoMain(): Promise<void> {
+  public async switchToMainPage(): Promise<void> {
     this.titleLabel = element(by.css('.main-header'));
     await browser.switchTo().defaultContent();
   }
 
-  public async switchtoFrame(): Promise<void> {
+  public async switchToFrame(): Promise<void> {
     this.titleLabel = element(by.id('sampleHeading'));
     await browser.switchTo().frame(this.iframe1.getWebElement());
   }
