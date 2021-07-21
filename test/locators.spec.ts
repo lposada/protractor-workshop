@@ -18,6 +18,7 @@ describe('Enter webpage', () => {
         sex: 'Male',
         experience: 7,
         profession: ['Automation Tester'],
+        url: './resources/image_testing.jpg',
         tools: ['Selenium Webdriver'],
         continent: 'South America',
         commands: [
@@ -27,6 +28,11 @@ describe('Enter webpage', () => {
           'Wait Commands',
           'WebElement Commands'],
       });
+    });
+    it('then should have a file uploaded', async () => {
+      const personalInformationPage: PersonalInformationPage = new PersonalInformationPage();
+
+      await expect(personalInformationPage.getUploadInputLength()).toContain('image_testing.jpg');
     });
     describe('Send Information', () => {
       beforeAll(async () => {

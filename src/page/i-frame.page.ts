@@ -1,34 +1,20 @@
-import { browser, by, element, ElementFinder, promise } from 'protractor';
+/* eslint-disable class-methods-use-this */
+import {
+  browser, element, by, ElementFinder,
+} from 'protractor';
 
 export class FramePage {
-  private iframe1: ElementFinder;
-
   private titleLabel: ElementFinder;
 
   constructor() {
-    this.iframe1 = element(by.id('frame1'));
-    this.titleLabel = element(by.css('.main-header'));
+    this.titleLabel = element(by.id('sampleHeading'));
   }
 
   public async switchToMainPage(): Promise<void> {
-    this.titleLabel = element(by.css('.main-header'));
     await browser.switchTo().defaultContent();
-  }
-
-  public async switchToFrame(): Promise<void> {
-    this.titleLabel = element(by.id('sampleHeading'));
-    await browser.switchTo().frame(this.iframe1.getWebElement());
   }
 
   public async getTitle(): Promise<string> {
     return this.titleLabel.getText();
-  }
-
-  public async getFormFrameHeight(): Promise<string> {
-    return this.iframe1.getAttribute('height');
-  }
-
-  public setFormFrameHeight(height: number): promise.Promise<void> {
-    return browser.executeScript(`arguments[0].height = ${height};`, this.iframe1);
   }
 }

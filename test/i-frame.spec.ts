@@ -1,6 +1,6 @@
 import { browser } from 'protractor';
 import {
-  FramePage,
+  FramePage, MainPage,
 } from '../src/page';
 
 describe('Enter webpage', () => {
@@ -10,22 +10,20 @@ describe('Enter webpage', () => {
   });
   describe('Change height and verify it', () => {
     const framePage: FramePage = new FramePage();
+    const mainPage: MainPage = new MainPage();
     beforeAll(async () => {
-      await framePage.setFormFrameHeight(600);
+      await mainPage.setFormFrameHeight(600);
     });
     it('then should have the height changed', async () => {
-      await expect(framePage.getFormFrameHeight()).toBe('600');
+      await expect(mainPage.getFormFrameHeight()).toBe('600');
     });
-    describe('Switch to main page', () => {
-      beforeAll(async () => {
-        await framePage.switchToMainPage();
-      });
+    describe('Read main page title', () => {
       it('then the title should be Frames', async () => {
-        await expect(framePage.getTitle()).toBe('Frames');
+        await expect(mainPage.getTitle()).toBe('Frames');
       });
       describe('Change to frame', () => {
         beforeAll(async () => {
-          await framePage.switchToFrame();
+          await mainPage.switchToFrame();
         });
         it('then the title should be This is a sample page', async () => {
           await expect(framePage.getTitle()).toBe('This is a sample page');
@@ -35,7 +33,7 @@ describe('Enter webpage', () => {
             await framePage.switchToMainPage();
           });
           it('then the title should be Frames', async () => {
-            await expect(framePage.getTitle()).toBe('Frames');
+            await expect(mainPage.getTitle()).toBe('Frames');
           });
         });
       });
