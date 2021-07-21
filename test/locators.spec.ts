@@ -32,7 +32,7 @@ describe('Enter webpage', () => {
     it('then should have a file uploaded', async () => {
       const personalInformationPage: PersonalInformationPage = new PersonalInformationPage();
 
-      await expect(personalInformationPage.getUploadInputLength()).toBe('C:\\fakepath\\image_testing.jpg');
+      await expect(personalInformationPage.getUploadInputLength()).toContain('image_testing.jpg');
     });
     describe('Send Information', () => {
       beforeAll(async () => {
