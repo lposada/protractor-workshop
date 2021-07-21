@@ -8,15 +8,37 @@ describe('Enter webpage', () => {
     await browser.waitForAngularEnabled(false);
     await browser.get('https://demoqa.com/frames');
   });
-  describe('change height', () => {
+  describe('Change height and verify it', () => {
+    const framePage: FramePage = new FramePage();
     beforeAll(async () => {
-      const framePage: FramePage = new FramePage();
-
       await framePage.setFormFrameHeight(600);
     });
     it('then should have the height changed', async () => {
-      const framePage: FramePage = new FramePage();
       await expect(framePage.getFormFrameHeight()).toBe('600');
+    });
+    describe('Switch to main page', () => {
+      beforeAll(async () => {
+        await framePage.switchToMainPage();
+      });
+      it('then the title should be Frames', async () => {
+        await expect(framePage.getTitle()).toBe('Frames');
+      });
+      describe('Change to frame', () => {
+        beforeAll(async () => {
+          await framePage.switchToFrame();
+        });
+        it('then the title should be This is a sample page', async () => {
+          await expect(framePage.getTitle()).toBe('This is a sample page');
+        });
+        describe('Switch to main page', () => {
+          beforeAll(async () => {
+            await framePage.switchToMainPage();
+          });
+          it('then the title should be Frames', async () => {
+            await expect(framePage.getTitle()).toBe('Frames');
+          });
+        });
+      });
     });
   });
 });
