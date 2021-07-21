@@ -6,8 +6,6 @@ import {
 export class FramePage {
   private titleLabel: ElementFinder;
 
-  private titleLabel: ElementFinder;
-
   constructor() {
     this.titleLabel = element(by.id('sampleHeading'));
   }
