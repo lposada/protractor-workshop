@@ -3,16 +3,23 @@ import {
   $, $$, by, browser, ElementFinder, element, ExpectedConditions,
 } from 'protractor';
 
+import { cwd } from 'process';
+
+const path = require('path');
+
 export class PersonalInformationPage {
   private firstNameInput: ElementFinder;
 
   private lastNameInput: ElementFinder;
+
+  private uploadFile: ElementFinder;
 
   private submitButton: ElementFinder;
 
   constructor() {
     this.firstNameInput = element(by.name('firstname'));
     this.lastNameInput = element(by.name('lastname'));
+    this.uploadFile = element(by.name('photo'));
     this.submitButton = element(by.name('submit'));
   }
 
@@ -55,13 +62,26 @@ export class PersonalInformationPage {
     });
   }
 
-  public async fillForm(data: {firstName: string, lastName: string, sex: string, experience: number,
-    profession: string[], tools: string[], continent: string,
+  private async UploadFile(url: string): Promise<void> {
+    if (url) {
+      const fpath = path.resolve(cwd(), url);
+      await this.uploadFile.sendKeys(fpath);
+    }
+  }
+
+  public async getUploadInputLength() {
+    await browser.wait(ExpectedConditions.elementToBeClickable(this.uploadFile), 3000);
+    return this.uploadFile.getAttribute('value');
+  }
+
+  public async fillForm(data: { firstName: string, lastName: string, sex: string,
+    experience: number, profession: string[], url: string, tools: string[], continent: string,
     commands: string[] }): Promise<void> {
     await this.fillName(data.firstName, data.lastName);
     await this.fillSex(data.sex);
     await this.fillExperience(data.experience);
     await this.fillProfession(data.profession);
+    await this.UploadFile(data.url);
     await this.fillTools(data.tools);
     await this.fillContinent(data.continent);
     await this.fillCommands(data.commands);
