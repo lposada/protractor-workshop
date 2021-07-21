@@ -1,5 +1,7 @@
 /* eslint-disable class-methods-use-this */
-import { browser, element, by, ElementFinder } from 'protractor';
+import {
+  browser, element, by, ElementFinder,
+} from 'protractor';
 
 export class FramePage {
   private titleLabel: ElementFinder;
