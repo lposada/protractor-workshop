@@ -171,3 +171,6 @@ dist
 
 # Jasmine Awesome Reports
 reports
+
+#Temporal Folder
+temp

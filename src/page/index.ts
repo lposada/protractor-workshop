@@ -11,3 +11,4 @@ export { OrderSummaryPage } from './order-summary.page';
 export { PersonalInformationPage } from './personal-information.page';
 export { FramePage } from './i-frame.page';
 export { MainPage } from './main-content.page';
+export { DownloadFilePage } from './download.page';
