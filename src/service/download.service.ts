@@ -15,14 +15,14 @@ export class DownloadService {
     this.folder = path.resolve(cwd(), 'temp');
   }
 
-  public async createFolder() {
+  public createFolder() {
     if (!existsSync(this.folder)) {
       mkdirSync(this.folder);
     }
   }
 
-  public async downloadFile(link: string, filename): Promise<void> {
-    await this.createFolder();
+  public downloadFile(link: string, filename) {
+    this.createFolder();
     const base64File = link.replace(/^data:image\/(png|jpg|jpeg);base64,/, '');
     writeFileSync(path.resolve(this.folder, filename), base64File, 'base64');
   }

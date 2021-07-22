@@ -20,7 +20,7 @@ export class DownloadFilePage {
     await this.downloadService.downloadFile(await this.downloadButton.getAttribute('href'), filename);
   }
 
-  public readFileFromFolder(filename: string) {
+  public readFileFromFolder(filename: string): Buffer {
     return this.downloadService.readFileFromTemp(filename);
   }
 }
