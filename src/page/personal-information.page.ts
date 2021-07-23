@@ -3,6 +3,8 @@ import {
   $, $$, by, browser, ElementFinder, element, ExpectedConditions,
 } from 'protractor';
 
+import * as remote from 'selenium-webdriver/remote';
+
 import { cwd } from 'process';
 
 const path = require('path');
@@ -63,10 +65,10 @@ export class PersonalInformationPage {
   }
 
   private async UploadFile(url: string): Promise<void> {
-    if (url) {
-      const fpath = path.resolve(cwd(), url);
-      await this.uploadFile.sendKeys(fpath);
-    }
+    const fpath = path.resolve(cwd(), url);
+    await browser.setFileDetector(new remote.FileDetector());
+    await this.uploadFile.sendKeys(fpath);
+    await browser.setFileDetector(undefined);
   }
 
   public async getUploadInputLength() {
@@ -81,7 +83,9 @@ export class PersonalInformationPage {
     await this.fillSex(data.sex);
     await this.fillExperience(data.experience);
     await this.fillProfession(data.profession);
-    await this.UploadFile(data.url);
+    if (data.url) {
+      await this.UploadFile(data.url);
+    }
     await this.fillTools(data.tools);
     await this.fillContinent(data.continent);
     await this.fillCommands(data.commands);
