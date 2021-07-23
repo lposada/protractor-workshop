@@ -19,18 +19,18 @@ const chromeConfig = {
 const multiCapabilities = [chromeConfig, firefoxConfig];
 
 export const config: Config = {
+  multiCapabilities,
+  sauceUser: process.env.SAUCE_USERNAME,
+  sauceKey: process.env.SAUCE_ACCESS_KEY,
   framework: 'jasmine',
   specs: ['../test/**/**.spec.js'],
   SELENIUM_PROMISE_MANAGER: false,
-  getPageTimeout: 3000,
-  sauceUser: process.env.SAUCE_USERNAME,
-  sauceKey: process.env.SAUCE_ACCESS_KEY,
+  getPageTimeout: 30000,
   jasmineNodeOpts: {
-    defaultTimeoutInterval: 240000,
+    defaultTimeoutInterval: 120000,
   },
   onPrepare: () => {
     reporter();
     browser.manage().timeouts().implicitlyWait(0);
   },
-  multiCapabilities,
 };
