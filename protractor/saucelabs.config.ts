@@ -26,7 +26,7 @@ export const config: Config = {
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   jasmineNodeOpts: {
-    defaultTimeoutInterval: 120000,
+    defaultTimeoutInterval: 240000,
   },
   onPrepare: () => {
     reporter();
